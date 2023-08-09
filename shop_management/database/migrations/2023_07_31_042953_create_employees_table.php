@@ -18,10 +18,12 @@ class CreateEmployeesTable extends Migration
             $table->text('address')->nullable();
             $table->string('contact')->nullable();
             $table->enum("gender",array("male","female","other"));
-            $table->string('info')->nullable();        
+            $table->string('info')->nullable();
             $table->date('dob');
             $table->double('salary', 8, 2);
             $table->enum("status",array("active","suspended","expired"));
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

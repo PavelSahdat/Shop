@@ -19,6 +19,8 @@ class CreateCustomersTable extends Migration
             $table->text('address')->nullable();
             $table->string('country')->nullable();
             $table->string('invoice_number');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

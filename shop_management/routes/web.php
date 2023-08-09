@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Ramsey\Uuid\Type\Integer;
@@ -55,5 +56,10 @@ Route::middleware('auth')->group(function () {
 
     });
 
+    Route::get('/employee',[EmployeeController::class,'getEmployeeList'])->name('employees');
+    Route::get('/employees/create',[EmployeeController::class,'createEmployeeForm'])->name('employees.create');
+    Route::post('/employee/post',[EmployeeController::class,'postEmployee'])->middleware('auth')->name('employees.post');
 
-require __DIR__.'/auth.php';
+    Route::get('/employeeSearch/{id}', [EmployeeController::class, 'showEmployee']);
+    
+    require __DIR__.'/auth.php';

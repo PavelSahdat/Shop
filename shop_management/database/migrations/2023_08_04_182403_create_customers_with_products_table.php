@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreignId('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->unique(array('customer_id','product_id'));
             $table->timestamps();
         });
     }
