@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use Ramsey\Uuid\Type\Integer;
 
@@ -39,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::view('/userlist', 'user.list', ['name' => 'Pavel Sahdat','id'=>10410]);
     
     //Parameter pass in route
-    Route::get('employee/{id}/{name}',function(int $id,string $name){
+    Route::get('employee_id_name/{id}/{name}',function(int $id,string $name){
         return "Id = ".$id."</br>"."name = ". $name;
     });
     
@@ -61,5 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/employee/post',[EmployeeController::class,'postEmployee'])->middleware('auth')->name('employees.post');
 
     Route::get('/employeeSearch/{id}', [EmployeeController::class, 'showEmployee']);
+    
+
+    Route::get('/role',[RoleController::class,'getRole'])->middleware('employee')->name('role');
     
     require __DIR__.'/auth.php';

@@ -31,7 +31,7 @@ class EmployeeController extends Controller
     }
 
     public function showEmployee(string $id = null)
-    {
+    {   
         return view('employees.profile', [
             'employee' => Employee::findOrFail($id)
         ]);

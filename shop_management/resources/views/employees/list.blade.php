@@ -37,12 +37,12 @@
                     <tbody>
                         @foreach ($employees as $employee)                  
                         <tr>
-                            <td>{{$employee->address}}</td>
+                            <td> {{$employee->address}} </td>
                             <td>{{$employee->contact}}</td>
                             <td>{{$employee->gender}}</td>
-                            <td>{{$employee->info}}</td>
-                            <td>{{$employee->dob}}</td>
-                            <td>{{$employee->salary}}</td>
+                            <td>{{$employee->info}}&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;{{$employee->dob}}</td>
+                            <td>&nbsp;&nbsp;{{$employee->salary}}</td>
                             <td>{{$employee->status}}</td>
                             <td>{{$employee->user_id}}</td>
                            
